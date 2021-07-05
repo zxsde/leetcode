@@ -3,7 +3,9 @@ package main.java.solutions.unclassified;
 
 /**
  * 10. Regular Expression Matching -- 正则表达式匹配。
- * https://leetcode.com/problems/regular-expression-matching/
+ * 题目： https://leetcode.com/problems/regular-expression-matching/
+ * 参考： https://leetcode.com/problems/regular-expression-matching/solution/
+ * 参考： https://leetcode-cn.com/problems/regular-expression-matching/solution/javadi-gui-yi-bu-yi-bu-de-you-hua-dao-ji-bai-100yi/
  *
  * @author zx
  * @since 2021-01-14
@@ -12,8 +14,9 @@ public class Q10Ismatch {
     int[][] memo; //记忆化递归使用
 
     /**
-     * 暴力递归，仅用于引出记忆化递归，不推荐使用，效率太低
-     * https://leetcode-cn.com/problems/regular-expression-matching/solution/javadi-gui-yi-bu-yi-bu-de-you-hua-dao-ji-bai-100yi/
+     * 方法一：暴力递归，仅用于引出记忆化递归，不推荐使用，效率太低。
+     * 时间复杂度 O((T+P)*2^(T+P/2)，T 和 P 分别是 s 和 p 的长度。
+     * 空间复杂度 O((T+P)*2^(T+P/2)。
      *
      * @param s 被匹配的字符串
      * @param p 正则表达式
@@ -34,8 +37,9 @@ public class Q10Ismatch {
 
 
     /**
-     * 记忆化递归，暴力递归的代码虽然简洁，但有太多重复的调用
-     * https://leetcode-cn.com/problems/regular-expression-matching/solution/javadi-gui-yi-bu-yi-bu-de-you-hua-dao-ji-bai-100yi/
+     * 方法二：记忆化递归，暴力递归的代码虽然简洁，但有太多重复的调用
+     * 时间复杂度 O(TP)，T 和 P 分别是 s 和 p 的长度。
+     * 空间复杂度 O(TP)。
      *
      * @param s 被匹配的字符串，如 "ab"
      * @param p 正则表达式，如 "c*a*b"
@@ -79,8 +83,9 @@ public class Q10Ismatch {
     }
 
     /**
-     * 动态规划，dp[i][j] 表示 s[i+1] 和 p[j+1]的匹配结果，难点在于 * 的前一位可能出现 0 或 1 或 n 次
-     * https://leetcode-cn.com/problems/regular-expression-matching/solution/javadi-gui-yi-bu-yi-bu-de-you-hua-dao-ji-bai-100yi/
+     * 方法三：动态规划，dp[i][j] 表示 s[i+1] 和 p[j+1]的匹配结果，难点在于 * 的前一位可能出现 0 或 1 或 n 次
+     * 时间复杂度 O(TP)，T 和 P 分别是 s 和 p 的长度。
+     * 空间复杂度 O(TP)。
      *
      * @param s 被匹配的字符串
      * @param p 正则表达式

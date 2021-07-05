@@ -3,15 +3,18 @@ package main.java.solutions.unclassified;
 
 /**
  * 8. String to Integer (atoi) -- 字符串转换整数 (atoi)
- * https://leetcode.com/problems/string-to-integer-atoi/
+ * 题目： https://leetcode.com/problems/string-to-integer-atoi/
+ * 参考： https://leetcode.com/problems/string-to-integer-atoi/discuss/4643/Java-Solution-with-4-steps-explanations
  *
  * @author zx
  * @since 2021-01-08
  */
 public class Q8MyAtoi {
     /**
-     * 按题意，小于等于 −2^31 的返回 −2^31 ，大于 2^31 − 1 的返回 2^31，极小值个位数是 -8，极大值个位数是 7
+     * 按题意，小于等于 −2^31 时返回 −2^31 ，大于 2^31 − 1 时返回 2^31 - 1，极小值个位数是 -8，极大值个位数是 7
      * 转换时候统一按照正数处理，最后再加符号。所以判断边界时，只要个位数大于 7 就是越界，根据符号输出极大/小值。
+     * 时间复杂度 O(n)。
+     * 时间复杂度 O(1)。
      *
      * @param s 字符串，如 "-42"
      * @return int 转换后的数字，如 -42
@@ -37,11 +40,8 @@ public class Q8MyAtoi {
             // char 转换为数字不能用 int，int curnum 会变成 ASCII 码
             int curnum = s.charAt(start) - '0';
             if (num > Integer.MAX_VALUE / 10 || (num == Integer.MAX_VALUE / 10 && curnum > 7)) {
-                if (sign == 1) {  // 正数
-                    return Integer.MAX_VALUE;
-                } else {  // 负数
-                    return Integer.MIN_VALUE;
-                }
+                // 正数返回极大值，负数返回极小值。
+                return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             }
             num = num * 10 + curnum;
             start++;

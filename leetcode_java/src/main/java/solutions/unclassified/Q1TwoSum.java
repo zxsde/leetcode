@@ -6,7 +6,8 @@ import java.util.Map;
 
 /**
  * 1. Two Sum -- 两数之和
- * https://leetcode.com/problems/two-sum/
+ * 题目：https://leetcode.com/problems/two-sum/
+ * 参考： https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-solution/
  *
  * @author zx
  * @since 2020-12-24
@@ -14,7 +15,9 @@ import java.util.Map;
 public class Q1TwoSum {
 
     /**
-     * 遍历每个数字 num，如果 target - num 在 Map 中就找到了结果，否则把 num 保存到 Map 中
+     * 遍历每个数字 num，如果 target - num 在 Map 中就找到了结果，否则把 num 保存到 Map 中。
+     * 时间复杂度 O(n)。
+     * 空间复杂度 O(n)。
      *
      * @param nums   数组，如 {2, 7, 11, 15}
      * @param target 目标值，如 9
@@ -25,9 +28,8 @@ public class Q1TwoSum {
         for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(target - nums[i])) {
                 return new int[]{map.get(target - nums[i]), i};
-            } else {
-                map.put(nums[i], i);
             }
+            map.put(nums[i], i);
         }
         return new int[0];
     }
