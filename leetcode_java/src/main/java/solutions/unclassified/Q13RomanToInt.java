@@ -25,7 +25,7 @@ public class Q13RomanToInt {
     /**
      * 方法一：hashMap。把数字的对应关系保存成 Map，遍历 s，小于后一位就减，大于后一位就加。
      * 时间复杂度 O(n)，小数据量情况下 hashmap 显示不出优势，用 switch 会更快。
-     * 时间复杂度 O(n)。
+     * 空间复杂度 O(n)。
      *
      * @param s 罗马数字，如 "MCMXCIV"
      * @return int 阿拉伯数字， 如 1994

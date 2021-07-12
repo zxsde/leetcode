@@ -14,7 +14,7 @@ public class Q14LongestCommonPrefix {
     /**
      * 对第一个单词的每一位，与其它单词相同的位置进行对比，看是否匹配。
      * 时间复杂度 O(mn)，其中 m 是 strs 中字符串的平均长度，n 是字符串的数量。
-     * 时间复杂度 O(1)。
+     * 空间复杂度 O(1)。
      *
      * @param strs 字符串数组，如 {"flower", "flow", "flight"}
      * @return String 最长公共前缀，如 "fl"
