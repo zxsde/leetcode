@@ -7,7 +7,8 @@ import java.util.List;
 
 /**
  * 15. 3Sum -- 三数相加。
- * https://leetcode.com/problems/3sum/
+ * 题目： https://leetcode.com/problems/3sum/
+ * 参考： https://leetcode.com/problems/3sum/discuss/7380/Concise-O(N2)-Java-solution
  *
  * @author zx
  * @since 2021-01-21
@@ -16,6 +17,8 @@ public class Q15ThreeSum {
 
     /**
      * 排序后，固定第一位，然后从左右两侧向中间遍历，找到符合条件的所有组合
+     * 时间复杂度 O(n^2)，其中 n 是数组 nums 的长度。
+     * 时间复杂度 O(n)。
      *
      * @param nums 数字数组，如 {-1, 0, 1, 2, -1, -4}
      * @return List 三个数字和为 0 的组合，如 {{-1, -1, 2}, {-1, 0, 1}}

@@ -11,7 +11,8 @@ package main.java.solutions.unclassified;
  * C             100
  * D             500
  * M             1000
- * https://leetcode.com/problems/integer-to-roman/
+ * 题目： https://leetcode.com/problems/integer-to-roman/
+ * 参考： https://leetcode-cn.com/problems/integer-to-roman/solution/tan-xin-suan-fa-by-liweiwei1419/
  *
  * @author zx
  * @since 2021-01-16
@@ -20,6 +21,8 @@ public class Q12IntToRoman {
 
     /**
      * 列出数字的对应关系，然后从大到小遍历阿拉伯数字，完成转换
+     * 时间复杂度 O(1)，复杂度是 O(1) 的核心原因在于题目限定了范围。
+     * 时间复杂度 O(1)。
      *
      * @param num 阿拉伯数字，如 1994
      * @return String 罗马数字，如 "MCMXCIV"
