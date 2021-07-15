@@ -5,8 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 1. Two Sum -- 无重复字符的最长子串
- * https://leetcode.com/problems/two-sum/
+ * 1. Longest Substring Without Repeating Characters -- 无重复字符的最长子串
+ * 题目： https://leetcode.com/problems/two-sum/
+ * 参考： https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/
  *
  * @author zx
  * @since 2020-12-24
@@ -14,8 +15,10 @@ import java.util.Map;
 public class Q3LengthOfLongestSubstring {
 
     /**
-     * 用 Map 保存遍历过的字母，key 是字母 value 是下标，
-     * 如果遇到已存在的字母，就要移动 left，并更新该字母的 value 为最新下标
+     * 方法一：滑动窗口简化版。用 Map 保存遍历过的字母，key 是字母 value 是下标，
+     * 如果遇到已存在的字母，就要移动 left，并更新该字母的 value 为最新下标。
+     * 时间复杂度：O(n)，n 是字符串长度。
+     * 空间复杂度：O(n)，空间复杂度实际上取决于不重复的字符个数。
      *
      * @param s 字符串，如 "abcabcbb"
      * @return int 无重复字符的最长子串，如 3，"abc"
@@ -39,9 +42,14 @@ public class Q3LengthOfLongestSubstring {
     }
 
     /**
-     * 滑动窗口，window 保存遍历过的字母，key 是字母 value 是出现次数，
+     * 方法二：滑动窗口万能模板。window 保存遍历过的字母，key 是字母 value 是出现次数，
      * 当 s[i] 出现次数大于 1 时就说明有重复字母，需要从窗口左侧逐个弹出字母，
      * 直到 s[i] 出现次数等于 1，记录此时的长度。
+     * 时间复杂度：O(n)，n 是字符串长度。
+     * 空间复杂度：O(n)，空间复杂度实际上取决于不重复的字符个数。
+     *
+     * @param s 字符串，如 "abcabcbb"
+     * @return int 无重复字符的最长子串，如 3，"abc"
      */
     public int lengthOfLongestSubstring2(String s) {
         if (s.length() == 0) {

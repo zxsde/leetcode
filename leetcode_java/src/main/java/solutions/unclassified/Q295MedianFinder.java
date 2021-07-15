@@ -28,7 +28,8 @@ PriorityQueue<Double> maxHeap=new PriorityQueue<>(1, Collections.reverseOrder())
 
 /**
  * 295. Find Median from Data Stream -- 数据流的中位数。中位数是有序列表中间的数
- * https://leetcode.com/problems/find-median-from-data-stream/
+ * 题目： https://leetcode.com/problems/find-median-from-data-stream/
+ * 参考： https://leetcode.com/problems/find-median-from-data-stream/discuss/74049
  *
  * @author zx
  * @since 2020-12-23
@@ -48,8 +49,11 @@ public class Q295MedianFinder {
     }
 
     /**
-     * 中位数是有序列表中间的数。把数据流分成两部分，小的一半用大根堆保存，大的一半用小根堆保存
-     * [3, 2, 1] -- [4, 5, 6]，中位数取两个队列的队首元素即可。
+     * 中位数是有序列表中间的数。把数据流分成两部分，小的一半用大根堆保存，大的一半用小根堆保存。
+     * [1, 2, 3, 4, 5, 6] 用两个堆保存，maxHeap = [3, 2, 1], minHeap = [4, 5, 6]，
+     * 取中位数就是取两个队列的队首元素即可。
+     * 时间复杂度：O(log n)，堆的插入和删除是 (log n)。
+     * 空间复杂度：O(n)。
      *
      * @param num 数字
      */

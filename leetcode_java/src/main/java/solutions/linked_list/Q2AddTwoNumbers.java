@@ -27,7 +27,8 @@ class ListNode {
 
 /**
  * 5. Longest Palindromic Substring -- 两数相加
- * https://leetcode.com/problems/add-two-numbers
+ * 题目： https://leetcode.com/problems/add-two-numbers
+ * 参考： https://leetcode-cn.com/problems/add-two-numbers/solution/hua-jie-suan-fa-2-liang-shu-xiang-jia-by-guanpengc/
  *
  * @author zx
  * @since 2020-12-24
@@ -35,7 +36,10 @@ class ListNode {
 public class Q2AddTwoNumbers {
 
     /**
-     * 给定的链表和相加后的链表，都是头节点指向个位数，所以边加边尾插法构建结果就行
+     * 注意 l1 和 l2 的头节点指向个位数，返回的结果，头节点也是指向个位数。
+     * 所以边求和边尾插法构建链表即可，留意进位和遇到 null 的处理。
+     * 时间复杂度：O(max(m, n))，m 和 n 分别为 l1 和 l2 的长度。
+     * 空间复杂度：O(1)。
      *
      * @param l1 链表 l1
      * @param l2 链表 l2
@@ -45,7 +49,7 @@ public class Q2AddTwoNumbers {
         ListNode head = new ListNode(0);
         ListNode cur = head;
         int carry = 0;
-        while (l1 != null || l2 != null || carry != 0) {
+        while (l1 != null || l2 != null){
             int x = (l1 != null ? l1.val : 0);
             int y = (l2 != null ? l2.val : 0);
             int sum = x + y + carry;
@@ -55,47 +59,11 @@ public class Q2AddTwoNumbers {
             l1 = (l1 != null ? l1.next : null);
             l2 = (l2 != null ? l2.next : null);
         }
+        // 处理进位
+        if (carry > 0) {
+            cur.next = new ListNode(carry);
+        }
         return head.next;
     }
 
-    @Test
-    public void addTwoNumbersTest() {
-        // 链表 l1
-        ListNode l1_1 = new ListNode(2);
-        ListNode l1_2 = new ListNode(4);
-        ListNode l1_3 = new ListNode(4);
-        l1_1.next = l1_2;
-        l1_2.next = l1_3;
-
-        // 链表 l2
-        ListNode l2_1 = new ListNode(5);
-        ListNode l2_2 = new ListNode(6);
-        ListNode l2_3 = new ListNode(5);
-        l2_1.next = l2_2;
-        l2_2.next = l2_3;
-
-        // 相加的结果
-        ListNode res = addTwoNumbers(l1_1, l2_1);
-
-        // 期望的结果
-        ListNode e_1 = new ListNode(7);
-        ListNode e_2 = new ListNode(0);
-        ListNode e_3 = new ListNode(0);
-        ListNode e_4 = new ListNode(1);
-        e_1.next = e_2;
-        e_2.next = e_3;
-        e_3.next = e_4;
-
-        assertEquals(getval(e_1), getval(res));
-    }
-
-    // 把链表的 val 保存成列表，方便比较
-    private List<Integer> getval(ListNode head) {
-        List<Integer> ans = new ArrayList<>();
-        while (head != null) {
-            ans.add(head.val);
-            head = head.next;
-        }
-        return ans;
-    }
 }

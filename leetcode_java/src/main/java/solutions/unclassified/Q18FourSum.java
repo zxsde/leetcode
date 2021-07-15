@@ -7,7 +7,9 @@ import java.util.List;
 
 /**
  * 18. 4Sum -- 四数相加。
- * https://leetcode.com/problems/4sum/
+ * 题目： https://leetcode.com/problems/4sum/
+ * 参考： https://leetcode-cn.com/problems/4sum/solution/si-shu-zhi-he-by-leetcode-solution/
+ * 参考： https://leetcode.com/problems/4sum/discuss/8609/My-solution-generalized-for-kSums-in-JAVA
  *
  * @author zx
  * @since 2021-01-23
@@ -15,7 +17,9 @@ import java.util.List;
 public class Q18FourSum {
 
     /**
-     * 类似三数之和，排序后，固定前两位，然后从左右两侧向中间遍历，找到符合条件的所有组合
+     * 方法一：排序+双指针。类似三数之和，排序后，固定前两位，然后从左右两侧向中间遍历，找到符合条件的所有组合。
+     * 时间复杂度 O(n^3)，其中 n 是数组的长度，排序的时间复杂度是 O(nlog n)，枚举四元组的时间复杂度是 O(n^3)。
+     * 空间复杂度 O(n)。
      *
      * @param nums   数字数组，如 {1, 0, -1, 0, -2, 2}
      * @param target 和，如 0
@@ -57,11 +61,10 @@ public class Q18FourSum {
         return ans;
     }
 
-
-//    static List<List<Integer>> ans = new ArrayList<>();
-
     /**
-     * N 数之和的模板。思路还是排序后，先固定 n - 2 个数字，只留两个数字找一遍，然后递归回溯
+     * 方法二：k 数之和的模板。思路还是排序后，先固定 k - 2 个数字，只留两个数字找一遍，然后递归回溯。
+     * 时间复杂度：O(n^(k-1))。
+     * 空间复杂度：O(n)。
      *
      * @param nums   数字数组
      * @param target 四数之和
@@ -80,7 +83,7 @@ public class Q18FourSum {
      *
      * @param nums   数字数组
      * @param target 和
-     * @param k      target 是 k 个数字之和
+     * @param k      k 个数字之和为 target
      * @param idx    nums 下标
      * @param path   每次找到的符合条件的解
      * @param ans    所有符合条件的解
@@ -125,20 +128,5 @@ public class Q18FourSum {
                 System.out.println("ans:" + ans + "\n");
             }
         }
-    }
-
-    public static void main(String[] args) {
-        int[] nums1 = {1, 0, -1, 0, -2, 2};
-        int target1 = 0;
-        Q18FourSum q18FourSum1 = new Q18FourSum();
-        List<List<Integer>> res1 = q18FourSum1.fourSum2(nums1, target1);
-        System.out.println(res1);
-
-        System.out.println("==================");
-        int[] nums2 = {0, 0, 0, 0};
-        int target2 = 0;
-//        Q18FourSum q18FourSum2 = new Q18FourSum();
-        List<List<Integer>> res2 = q18FourSum1.fourSum2(nums2, target2);
-        System.out.println(res2);
     }
 }
