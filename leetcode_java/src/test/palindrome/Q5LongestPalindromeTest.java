@@ -22,4 +22,12 @@ public class Q5LongestPalindromeTest {
         assertEquals("abba", new Q5LongestPalindrome().longestPalindrome2(s1));
         assertEquals("bbabb", new Q5LongestPalindrome().longestPalindrome2(s2));
     }
+
+    @Test
+    public void longestPalindrome3Test() {
+        String s1 = "babbad";
+        String s2 = "bbabbad";
+        assertEquals("abba", new Q5LongestPalindrome().longestPalindrome3(s1));
+        assertEquals("bbabb", new Q5LongestPalindrome().longestPalindrome3(s2));
+    }
 }
